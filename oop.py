@@ -173,14 +173,14 @@ student_two.raiting(lecture_two, 'Python', 8)
 # some_reviewer.rate_hw(best_student, 'Python', 7)
 
 print(student_one)
- print(lecture_one)
- print(reviewer_one)
- print(student_two)
- print(lecture_two)
- print(reviewer_two)
+print(lecture_one)
+print(reviewer_one)
+print(student_two)
+print(lecture_two)
+print(reviewer_two)
 
- print(lecture_one.sravni(lecture_two))
- print(student_one.sravni(student_two))
+print(lecture_one.sravni(lecture_two))
+print(student_one.sravni(student_two))
 
 test_list = [student_one, student_two]
 avg_all_students(test_list, 'Python')
