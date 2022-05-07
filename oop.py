@@ -45,6 +45,36 @@ class Student:
         else:
             return f"У студента {self.name} {self.surname} средняя оценка меньше"
 
+    def __eq__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.grades) == enemy.avg_grade(enemy.grades)
+
+    def __ne__(self, enemy):
+        if not isinstance(enemy, Student):
+            return
+        return self.avg_grade(self.grades) != enemy.avg_grade(enemy.grades)
+
+    def __lt__(self, enemy):
+        if not isinstance(enemy, Student):
+            return
+        return self.avg_grade(self.grades) < enemy.avg_grade(enemy.grades)
+
+    def __gt__(self, enemy):
+        if not isinstance(enemy, Student):
+            return
+        return self.avg_grade(self.grades) > enemy.avg_grade(enemy.grades)
+
+    def __le__(self, enemy):
+        if not isinstance(enemy, Student):
+            return
+        return self.avg_grade(self.grades) <= enemy.avg_grade(enemy.grades)
+
+    def __ge__(self, enemy):
+        if not isinstance(enemy, Student):
+            return
+        return self.avg_grade(self.grades) >= enemy.avg_grade(enemy.grades)
+
 
 class Mentor:
     def __init__(self, name, surname):
@@ -76,6 +106,36 @@ class Lecturer(Mentor):
             return f"У лекторов средние оценки равны"
         else:
             return f"У лектора {self.name} {self.surname} средняя оценка меньше"
+
+    def __eq__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.students_rating) == enemy.avg_grade(enemy.students_rating)
+
+    def __ne__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.students_rating) != enemy.avg_grade(enemy.students_rating)
+
+    def __lt__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.students_rating) < enemy.avg_grade(enemy.students_rating)
+
+    def __gt__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.students_rating) > enemy.avg_grade(enemy.students_rating)
+
+    def __le__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.students_rating) <= enemy.avg_grade(enemy.students_rating)
+
+    def __ge__(self, enemy):
+        if not isinstance(enemy, Lecturer):
+            return
+        return self.avg_grade(self.students_rating) >= enemy.avg_grade(enemy.students_rating)
 
     def __str__(self):
         text = (f"Имя: {self.name}\n" 
@@ -178,12 +238,18 @@ print(reviewer_one)
 print(student_two)
 print(lecture_two)
 print(reviewer_two)
+print(lecture_one == lecture_two)
+print(student_one > student_two)
 
 print(lecture_one.sravni(lecture_two))
 print(student_one.sravni(student_two))
+
+
 
 test_list = [student_one, student_two]
 avg_all_students(test_list, 'Python')
 
 test_list2 = [lecture_one, lecture_two]
 avg_all_lecturers(test_list2, 'Python')
+
+
